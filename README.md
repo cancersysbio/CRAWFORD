@@ -57,8 +57,8 @@ images: [N_tiles, img_size, img_size, 3] - H&E tile images associated with each 
 Example directory
 
 /data/h5_files/
-  TCGA-XX-0001.h5
-  TCGA-XX-0002.h5
+TCGA-XX-0001.h5
+TCGA-XX-0002.h5
   
 Quickstart
 Train a new CRAWFORD model
@@ -72,7 +72,7 @@ python CRAWFORD_train.py \
 --img_size 256 \
 --unet_number_to_train 2 \
 --num_samples_save 600
-
+```
 
 Training Notes
 Train until loss stabilizes and generated image quality is satisfactory. We recommend generating a few images at regular intervals
