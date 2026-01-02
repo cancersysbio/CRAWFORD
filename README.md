@@ -1,5 +1,7 @@
 # CRAWFORD: Cascaded Diffusion Model for UNI2 (or train your own!) Embedding -> H&E Tile Image
 
+Preprint Link: https://www.biorxiv.org/content/10.64898/2025.12.29.692457v1
+
 **CRAWFORD** is a cascaded diffusion model for the generation of images based on an imput UNI2 embedding. CRAWFORD was trained
 on H&E of 61 tissue types across healthy and cancerous tissue. CRAWFORD is designed to generate high quality images from
 embeddings for 1) synthetic embedding visualization for validation and 2) perturbational embedding analysis for model interpretation.
@@ -18,20 +20,20 @@ conda activate CRAWFORD
 ## Generating from Pretrained Checkpoint
 Our pretrained CRAWFORD model for generating UNI2 images is available on HuggingFace (UPDATE WITH LINK)
 
-Data Format
+### Data Format
 Each .h5 file contains all embeddings to generate images from.
 
-Datasets inside each file
+### Datasets inside each file
 
 features: [N_tiles, D] — embedding vectors (D=embedding dimension of foundation model)
 
-Example directory
+### Example directory
 
-/data/h5_files/
-  TCGA-XX-0001.h5
-  TCGA-XX-0002.h5
+/data/h5_files/TCGA-XX-0001.h5
+
+/data/h5_files/TCGA-XX-0002.h5
   
-Quickstart
+## Quickstart
 Generate from Pretrained Checkpoint
 
 ```bash
@@ -45,22 +47,22 @@ python CRAWFORD_generate.py \
 ## Training a New CRAWFORD Model (for a different foundation model)
 We recommend using the publicly available H&E datasets TCGA and GTEx for a wide varieyt of tissue types and disease statuses
 
-Data Format
+## Data Format
 Each .h5 file contains all embeddings to generate images from.
 
-Datasets inside each file
+### Datasets inside each file
 
 features: [N_tiles, D] — embedding vectors (D=embedding dimension of foundation model)
 
 images: [N_tiles, img_size, img_size, 3] - H&E tile images associated with each embedding
 
-Example directory
+### Example directory
 
 /data/h5_files/
 TCGA-XX-0001.h5
 TCGA-XX-0002.h5
   
-Quickstart
+## Quickstart
 Train a new CRAWFORD model
 
 ```bash
@@ -74,17 +76,13 @@ python CRAWFORD_train.py \
 --num_samples_save 600
 ```
 
-Training Notes
+### Training Notes
 Train until loss stabilizes and generated image quality is satisfactory. We recommend generating a few images at regular intervals
+
 (see # Sample images for testing section in CRAWFORD_train.py) to identify generated image quality consistently
 
-Citation
-If you use CRAWFORD in your work:
-
-To-update
-
-License
+## License
 Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 
-Acknowledgments
+## Acknowledgments
 Developed in the Curtis Lab at Stanford University.
